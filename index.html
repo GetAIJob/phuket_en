@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>ONLYBROKERS: Real Estate Partner</title>
+  
+  <!-- Google Fonts: Inter -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+
+  <style>
+    /* Reset & Base Styles */
+    * { box-sizing: border-box; }
+    
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #0f172a; /* Dark background */
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #334155;
+    }
+
+    /* Mobile Container */
+    .mobile-container {
+      width: 100%;
+      max-width: 480px;
+      background: #ffffff;
+      min-height: 100vh;
+      padding: 25px 20px;
+      position: relative;
+      box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    }
+
+    @media (min-width: 481px) {
+      .mobile-container {
+        min-height: auto;
+        border-radius: 24px;
+        margin: 20px 0;
+      }
+    }
+
+    /* Badge */
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: #DEF7EC;
+      color: #03543F;
+      padding: 6px 12px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 13px;
+      margin-bottom: 15px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .badge span {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      background: #22c55e;
+      border-radius: 50%;
+      margin-right: 6px;
+      animation: pulse-green 2s infinite;
+    }
+
+    /* Headings */
+    h1 {
+      font-size: 26px;
+      line-height: 1.2;
+      font-weight: 900;
+      margin: 0 0 10px 0;
+      color: #1e293b;
+    }
+
+    .highlight {
+      color: #0ea5a4; /* Teal / Brand Color */
+    }
+
+    .sub-highlight {
+      color: #d97706; /* Gold/Orange */
+      white-space: nowrap;
+      background: #fffbeb;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+
+    .subtitle {
+      font-size: 16px;
+      line-height: 1.5;
+      color: #64748b;
+      margin-bottom: 20px;
+    }
+
+    /* Video Container ((9:16 Вертикальное)) */
+    .video-frame {
+      position: relative;
+      width: 100%;
+      padding-bottom: 177.77%; 
+      background: #000;
+      border-radius: 16px;
+      overflow: hidden;
+      margin-bottom: 25px;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+    }
+
+    .video-frame iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    /* Project Features Block (Green/Eco Vibe) */
+    .project-features {
+      background: #f0fdf4; 
+      border: 1px solid #bbf7d0;
+      border-radius: 12px;
+      padding: 15px;
+      margin-bottom: 20px;
+    }
+
+    .feature-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      color: #166534;
+    }
+    
+    .feature-item span {
+      margin-right: 8px;
+      font-size: 18px;
+    }
+
+    /* Commission Box */
+    .commission-box {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 25px;
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    .commission-box h3 {
+      margin-top: 0;
+      color: #0f172a;
+      font-size: 18px;
+    }
+
+    .commission-step {
+      margin-bottom: 15px;
+      border-bottom: 1px dashed #cbd5e1;
+      padding-bottom: 10px;
+    }
+
+    .commission-step:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .income-highlight {
+      display: block;
+      font-weight: 800;
+      color: #16a34a; /* Green for money */
+      margin-top: 5px;
+      font-size: 17px;
+    }
+
+    /* Timer */
+    .timer-alert {
+      background: #FFFBEB;
+      border: 1px solid #FCD34D;
+      color: #92400E;
+      padding: 12px;
+      border-radius: 12px;
+      font-size: 14px;
+      font-weight: 600;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    /* Buttons */
+    .cta-button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      padding: 18px;
+      font-size: 18px;
+      font-weight: 700;
+      text-decoration: none;
+      border-radius: 14px;
+      margin-bottom: 12px;
+      transition: transform 0.1s;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    }
+
+    .cta-button:active {
+      transform: scale(0.98);
+    }
+
+    .btn-main {
+      background: linear-gradient(to right, #0ea5a4, #0891b2);
+      color: white;
+      animation: pulse 2s infinite;
+      border: 1px solid transparent;
+    }
+
+    .btn-tg {
+      background: #ffffff;
+      color: #24A1DE;
+      border: 2px solid #24A1DE;
+    }
+
+    /* Footer */
+    .footer {
+      margin-top: 20px;
+      font-size: 12px;
+      color: #94a3b8;
+      text-align: center;
+      line-height: 1.4;
+    }
+
+    /* Animations */
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(14, 165, 164, 0.7); }
+      70% { box-shadow: 0 0 0 10px rgba(14, 165, 164, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(14, 165, 164, 0); }
+    }
+
+    @keyframes pulse-green {
+      0% { opacity: 1; }
+      50% { opacity: 0.4; }
+      100% { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="mobile-container">
+    
+    <!-- Trust Badge -->
+    <div style="text-align: center;">
+      <div class="badge">
+        <span></span> Pre-launch Access
+      </div>
+    </div>
+
+    <h1>
+      Earn money on real estate in <span class="highlight">Thailand 🇹🇭 and the UAE 🇦🇪</span>
+    </h1>
+
+    <p class="subtitle">
+      Become a partner of <strong>ONLYBROKERS</strong>.<br>
+      Phuket (Layan Beach) • Dubai • <span class="sub-highlight">0$ Investment</span>
+    </p>
+
+    <!-- Project Features (Tailored for Phuket) -->
+    <div class="project-features">
+      <div style="font-weight:800; color:#0f172a; margin-bottom:10px;">🔥 Featured Project (Phuket):</div>
+      <div class="feature-item"><span>🌊</span> 800m to Layan Beach (Premium Area)</div>
+      <div class="feature-item"><span>🌿</span> Eco-Luxury & Smart Home</div>
+      <div class="feature-item"><span>📈</span> High Rental Yield Potential</div>
+      <div class="feature-item"><span>💎</span> Pre-sale Prices Available Now</div>
+    </div>
+
+     <!-- Видео -->
+    <div class="video-wrapper">
+  <iframe
+    id="yt-video"
+    src="https://www.youtube.com/embed/-IyBKpQavn4?autoplay=1&mute=1&controls=0&loop=1&playlist=-IyBKpQavn4"
+    allow="autoplay; encrypted-media"
+    allowfullscreen>
+  </iframe>
+
+  <button id="sound-btn" class="sound-btn">
+    🔊 ВКЛЮЧИТЬ ЗВУК
+  </button>
+</div>
+
+    <!-- Commission Calculation -->
+    <div class="commission-box">
+      <h3>💸 How much can you earn?</h3>
+      <p style="margin-top: 0; font-size: 14px; color: #64748b;">
+        Based on a starting unit price of approx. <strong>$200,000</strong> (Phuket).
+      </p>
+
+      <div class="commission-step">
+        <strong>1️⃣ Direct Sale (3%)</strong><br>
+        You find a buyer for a studio or 1-bedroom unit.
+        <span class="income-highlight">💰 Your Commission: $6,000</span>
+      </div>
+
+      <div class="commission-step">
+        <strong>2️⃣ Team Override (1%)</strong><br>
+        Your referral makes a sale. You do nothing.
+        <span class="income-highlight">💰 Passive Income: $2,000</span>
+      </div>
+
+      <div style="background: #ecfdf5; padding: 10px; border-radius: 6px; font-size: 14px; margin-top: 10px; border-left: 3px solid #10b981;">
+        <strong>🚀 The Opportunity:</strong><br>
+        Investors are flocking to Thailand. Digital Nomads want to buy homes. Be the bridge and get paid.
+      </div>
+    </div>
+
+    <!-- Timer -->
+    <div class="timer-alert">
+      ⏳ Broker registration closes in: <span id="timer">14:59</span>
+    </div>
+
+    <!-- Buttons -->
+    <a href="https://onlybrokers.com/registration?ref=smanolii%40gmail.com" class="cta-button btn-main">
+      👉 Start Earning (Free Join)
+    </a>
+
+    <a href="https://t.me/OnPassive_EN" target="_blank" class="cta-button btn-tg">
+      💬 Join Telegram Community
+    </a>
+
+    <div class="footer">
+      <p>ONLYBROKERS International.<br>
+      Phuket • Dubai • Bali<br>
+      &copy; 2026 All Rights Reserved.</p>
+    </div>
+
+  </div>
+
+  <script>
+    function startTimer(duration, display) {
+        var timer = duration, minutes, seconds;
+        var interval = setInterval(function () {
+            minutes = parseInt(timer / 60, 10);
+            seconds = parseInt(timer % 60, 10);
+
+            minutes = minutes < 10 ? "0" + minutes : minutes;
+            seconds = seconds < 10 ? "0" + seconds : seconds;
+
+            display.textContent = minutes + ":" + seconds;
+
+            if (--timer < 0) {
+                timer = 0; 
+                clearInterval(interval);
+                display.textContent = "00:00";
+            }
+        }, 1000);
+    }
+
+    window.onload = function () {
+        var fifteenMinutes = 60 * 15,
+            display = document.querySelector('#timer');
+        startTimer(fifteenMinutes, display);
+    };
+  </script>
+  
+   <script>
+  document.getElementById("sound-btn").addEventListener("click", function () {
+    const iframe = document.getElementById("yt-video");
+
+    iframe.src = "https://www.youtube.com/embed/aOuCXSmYkn8?autoplay=1&mute=0&controls=1";
+
+    this.style.display = "none";
+  });
+</script>
+
+</body>
+</html>
